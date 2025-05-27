@@ -1,0 +1,41 @@
+.lead-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.lead-form h2 {
+  text-align: center;
+}
+
+.lead-form input,
+.lead-form textarea {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.lead-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lead-form button:hover {
+  background: #0056b3;
+}
+
+.status {
+  margin-top: 1rem;
+  text-align: center;
+  color: green;
+}
