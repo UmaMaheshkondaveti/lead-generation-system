@@ -94,8 +94,8 @@ Message: {{$json["message"] || 'N/A'}}
 ```
 New lead received:
 
-Name: Rama Rao  
-Email: ramu@gmail.com  
+Name: Uma Mahesh  
+Email: umamaheshkondaveti12@gmail.com  
 Company: N/A  
 Message: N/A
 ```
