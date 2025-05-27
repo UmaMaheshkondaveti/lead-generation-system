@@ -16,14 +16,16 @@ This is a simple Lead Generation System built with a React frontend, Node.js + E
 
 ## 📁 Project Structure
 
+```
 project-root/
-├── client/ # React frontend
-├── server/ # Node.js backend
-│ ├── routes/leadRoutes.js
-│ ├── controllers/leadController.js
-│ └── server.js
+├── client/                  # React frontend
+├── server/                  # Node.js backend
+│   ├── routes/leadRoutes.js
+│   ├── controllers/leadController.js
+│   └── server.js
 ├── .env
-└── README.
+└── README.md
+```
 
 ---
 
@@ -34,73 +36,83 @@ project-root/
 ```bash
 cd server
 npm install
+```
 
-2. Configure Environment
-Create a .env file:
+### 2. Configure Environment
 
+Create a `.env` file in the `server/` directory with the following content:
+
+```
 PORT=5000
 N8N_WEBHOOK_URL=http://localhost:5678/webhook-test/lead-submission
+```
 
-🔗 n8n Setup
-1. Webhook Node
-Type: Webhook
+---
 
-HTTP Method: POST
+## 🔗 n8n Setup
 
-Path: lead-submission
+### 1. Webhook Node
 
-2. Send Email Node (using SendGrid)
-Node Type: SendGrid
+- **Type:** Webhook
+- **HTTP Method:** POST
+- **Path:** `lead-submission`
 
-From Email: no-reply@yourdomain.com
+### 2. Send Email Node (using SendGrid)
 
-To Email: sales@example.com
+- **Node Type:** SendGrid
+- **From Email:** no-reply@yourdomain.com
+- **To Email:** sales@example.com
 
-
-Subject:
+#### Subject:
+```
 New Lead: {{$json["name"]}}
+```
 
-Text:
+#### Text:
+```
 New lead received:
 
 Name: {{$json["name"]}}
 Email: {{$json["email"]}}
 Company: {{$json["company"] || 'N/A'}}
 Message: {{$json["message"] || 'N/A'}}
+```
 
-✅ Testing the Flow
-Run both the backend and frontend.
+---
 
-Open the form in your browser.
+## ✅ Testing the Flow
 
-Submit the form with valid name and email.
+1. Run both the backend and frontend.
+2. Open the form in your browser.
+3. Submit the form with valid name and email.
+4. Check your sales email inbox for the new lead notification.
 
-Check your sales email inbox for the new lead notification.
+---
 
+## 📬 Email Preview
 
-📬 Email Preview
-text
-Copy
-Edit
+```
 New lead received:
 
-Name: Rama Rao
-Email: ramu@gmail.com
-Company: N/A
+Name: Rama Rao  
+Email: ramu@gmail.com  
+Company: N/A  
 Message: N/A
+```
 
-🛠 Tech Stack
-React (frontend)
+---
 
-Node.js + Express (backend)
+## 🛠 Tech Stack
 
-n8n (workflow automation)
+- React (frontend)
+- Node.js + Express (backend)
+- n8n (workflow automation)
+- SendGrid (email delivery)
 
-SendGrid (email)
+---
 
-📌 Notes
-You must keep n8n running and the webhook active.
+## 📌 Notes
 
-Ensure your backend .env uses the correct webhook URL.
-
-Configure CORS properly if frontend is on a different port.
+- You must keep n8n running and the webhook active.
+- Ensure your backend `.env` uses the correct webhook URL.
+- Configure CORS properly if frontend is on a different port.
